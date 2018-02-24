@@ -1,0 +1,132 @@
+====================================================================================================================
+
+                    欢迎使用 renren-fast 人人快速开发平台 - Powered By http://www.renren.io/open/
+
+====================================================================================================================
+2018-01-19 11:23:57.837  INFO 4127 --- [           main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@b39c39: startup date [Fri Jan 19 11:23:57 EST 2018]; root of context hierarchy
+2018-01-19 11:24:00.781  INFO 4127 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2018-01-19 11:24:01.593  INFO 4127 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'shiroConfig' of type [io.everManage.config.ShiroConfig$$EnhancerBySpringCGLIB$$73ed7ac5] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-19 11:24:02.360  INFO 4127 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'mybatis-org.mybatis.spring.boot.autoconfigure.MybatisProperties' of type [org.mybatis.spring.boot.autoconfigure.MybatisProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-19 11:24:02.389  INFO 4127 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration' of type [org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration$$EnhancerBySpringCGLIB$$43463063] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-19 11:24:02.402  INFO 4127 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'dynamicDataSourceConfig' of type [io.everManage.datasources.DynamicDataSourceConfig$$EnhancerBySpringCGLIB$$d8537cb8] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-19 11:24:02.619  INFO 4127 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'spring.datasource-org.springframework.boot.autoconfigure.jdbc.DataSourceProperties' of type [org.springframework.boot.autoconfigure.jdbc.DataSourceProperties] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-19 11:24:02.636  INFO 4127 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'com.alibaba.druid.spring.boot.autoconfigure.stat.DruidFilterConfiguration' of type [com.alibaba.druid.spring.boot.autoconfigure.stat.DruidFilterConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-19 11:24:03.181  INFO 4127 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'statFilter' of type [com.alibaba.druid.filter.stat.StatFilter] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-19 11:24:03.736  INFO 4127 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'firstDataSource' of type [com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceWrapper] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-19 11:24:04.100  INFO 4127 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'secondDataSource' of type [com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceWrapper] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-19 11:24:04.119  INFO 4127 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'dataSource' of type [io.everManage.datasources.DynamicDataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-19 11:24:04.740  INFO 4127 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'sqlSessionFactory' of type [org.apache.ibatis.session.defaults.DefaultSqlSessionFactory] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-19 11:24:04.774  INFO 4127 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'sqlSessionTemplate' of type [org.mybatis.spring.SqlSessionTemplate] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-19 11:24:04.774  INFO 4127 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'sysMenuDao' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-19 11:24:04.778  INFO 4127 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'sysMenuDao' of type [com.sun.proxy.$Proxy64] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-19 11:24:04.781  INFO 4127 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'sysUserDao' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-19 11:24:04.785  INFO 4127 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'sysUserDao' of type [com.sun.proxy.$Proxy65] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-19 11:24:04.789  INFO 4127 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'sysUserTokenDao' of type [org.mybatis.spring.mapper.MapperFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-19 11:24:04.792  INFO 4127 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'sysUserTokenDao' of type [com.sun.proxy.$Proxy66] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-19 11:24:04.793  INFO 4127 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'shiroServiceImpl' of type [io.everManage.modules.sys.service.impl.ShiroServiceImpl] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-19 11:24:04.794  INFO 4127 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'OAuth2Realm' of type [io.everManage.modules.sys.oauth2.OAuth2Realm] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-19 11:24:04.854  INFO 4127 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'sessionManager' of type [org.apache.shiro.web.session.mgt.DefaultWebSessionManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-19 11:24:05.345  INFO 4127 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'securityManager' of type [org.apache.shiro.web.mgt.DefaultWebSecurityManager] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-19 11:24:05.482  INFO 4127 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'authorizationAttributeSourceAdvisor' of type [org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-19 11:24:05.628  INFO 4127 --- [           main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$1071df33] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-01-19 11:24:07.300  INFO 4127 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2018-01-19 11:24:07.330  INFO 4127 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-01-19 11:24:07.333  INFO 4127 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.16
+2018-01-19 11:24:07.506  INFO 4127 --- [ost-startStop-1] o.a.c.c.C.[.[localhost].[/renren-fast]   : Initializing Spring embedded WebApplicationContext
+2018-01-19 11:24:08.695  INFO 4127 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-01-19 11:24:08.696  INFO 4127 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-01-19 11:24:08.696  INFO 4127 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2018-01-19 11:24:08.696  INFO 4127 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-01-19 11:24:08.697  INFO 4127 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'delegatingFilterProxy' to urls: [/*]
+2018-01-19 11:24:08.697  INFO 4127 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'xssFilter' to urls: [/*]
+2018-01-19 11:24:08.697  INFO 4127 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'webStatFilter' to urls: [/*]
+2018-01-19 11:24:08.697  INFO 4127 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'shiroFilter' to: [/*]
+2018-01-19 11:24:08.697  INFO 4127 --- [ost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2018-01-19 11:24:08.699  INFO 4127 --- [ost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'statViewServlet' to [/druid/*]
+2018-01-19 11:24:11.650  INFO 4127 --- [           main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2018-01-19 11:24:11.684  INFO 4127 --- [           main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2018-01-19 11:24:11.684  INFO 4127 --- [           main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.0 created.
+2018-01-19 11:24:12.109  INFO 4127 --- [           main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+2018-01-19 11:24:12.124  INFO 4127 --- [           main] o.s.s.quartz.LocalDataSourceJobStore     : Using db table-based data access locking (synchronization).
+2018-01-19 11:24:12.128  INFO 4127 --- [           main] o.s.s.quartz.LocalDataSourceJobStore     : JobStoreCMT initialized.
+2018-01-19 11:24:12.129  INFO 4127 --- [           main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.0) 'RenrenScheduler' with instanceId 'localhost.localdomain1516379051654'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 20 threads.
+  Using job-store 'org.springframework.scheduling.quartz.LocalDataSourceJobStore' - which supports persistence. and is clustered.
+
+2018-01-19 11:24:12.129  INFO 4127 --- [           main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'RenrenScheduler' initialized from an externally provided properties instance.
+2018-01-19 11:24:12.129  INFO 4127 --- [           main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.0
+2018-01-19 11:24:12.132  INFO 4127 --- [           main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.AdaptableJobFactory@b042da
+2018-01-19 11:24:19.095  INFO 4127 --- [           main] oConfiguration$WelcomePageHandlerMapping : Adding welcome page: class path resource [views/index.html]
+2018-01-19 11:24:21.783  INFO 4127 --- [           main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2018-01-19 11:24:21.786  INFO 4127 --- [           main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'firstDataSource' has been autodetected for JMX exposure
+2018-01-19 11:24:21.786  INFO 4127 --- [           main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'secondDataSource' has been autodetected for JMX exposure
+2018-01-19 11:24:21.787  INFO 4127 --- [           main] o.s.j.e.a.AnnotationMBeanExporter        : Bean with name 'statFilter' has been autodetected for JMX exposure
+2018-01-19 11:24:21.798  INFO 4127 --- [           main] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'firstDataSource': registering with JMX server as MBean [com.alibaba.druid.spring.boot.autoconfigure:name=firstDataSource,type=DruidDataSourceWrapper]
+2018-01-19 11:24:21.800  INFO 4127 --- [           main] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'secondDataSource': registering with JMX server as MBean [com.alibaba.druid.spring.boot.autoconfigure:name=secondDataSource,type=DruidDataSourceWrapper]
+2018-01-19 11:24:21.803  INFO 4127 --- [           main] o.s.j.e.a.AnnotationMBeanExporter        : Located MBean 'statFilter': registering with JMX server as MBean [com.alibaba.druid.filter.stat:name=statFilter,type=StatFilter]
+2018-01-19 11:24:21.809  INFO 4127 --- [           main] o.s.c.support.DefaultLifecycleProcessor  : Starting beans in phase 2147483647
+2018-01-19 11:24:21.809  INFO 4127 --- [           main] o.s.s.quartz.SchedulerFactoryBean        : Will start Quartz Scheduler [RenrenScheduler] in 30 seconds
+2018-01-19 11:24:21.821  INFO 4127 --- [           main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2018-01-19 11:24:21.866  INFO 4127 --- [           main] d.s.w.p.DocumentationPluginsBootstrapper : Found {0} custom documentation plugin(s)
+2018-01-19 11:24:21.891  INFO 4127 --- [           main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2018-01-19 11:24:21.900  INFO 4127 --- [           main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method login was app登录接口
+2018-01-19 11:24:21.904  INFO 4127 --- [           main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: login belongs to groups: [[ResourceGroup{groupName='app登录接口', position=0, controller=io.everManage.modules.app.controller.ApiLoginController}]]
+2018-01-19 11:24:21.906  INFO 4127 --- [           main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method notToken was app测试接口
+2018-01-19 11:24:21.906  INFO 4127 --- [           main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: notToken belongs to groups: [[ResourceGroup{groupName='app测试接口', position=0, controller=io.everManage.modules.app.controller.ApiTestController}]]
+2018-01-19 11:24:21.908  INFO 4127 --- [           main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method register was app注册接口
+2018-01-19 11:24:21.909  INFO 4127 --- [           main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: register belongs to groups: [[ResourceGroup{groupName='app注册接口', position=0, controller=io.everManage.modules.app.controller.ApiRegisterController}]]
+2018-01-19 11:24:21.911  INFO 4127 --- [           main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method userInfo was app测试接口
+2018-01-19 11:24:21.911  INFO 4127 --- [           main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: userInfo belongs to groups: [[ResourceGroup{groupName='app测试接口', position=0, controller=io.everManage.modules.app.controller.ApiTestController}]]
+2018-01-19 11:24:21.912  INFO 4127 --- [           main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method userInfo was app测试接口
+2018-01-19 11:24:21.913  INFO 4127 --- [           main] s.d.s.w.s.ApiListingReferenceScanner     : Request mapping: userInfo belongs to groups: [[ResourceGroup{groupName='app测试接口', position=0, controller=io.everManage.modules.app.controller.ApiTestController}]]
+2018-01-19 11:24:21.921  INFO 4127 --- [           main] s.d.s.w.s.ApiListingReferenceScanner     : Created resource listing Path: /default/app注册接口 Description: app注册接口 Position: 0
+2018-01-19 11:24:21.923  INFO 4127 --- [           main] s.d.s.w.s.ApiListingReferenceScanner     : Created resource listing Path: /default/app测试接口 Description: app测试接口 Position: 0
+2018-01-19 11:24:21.925  INFO 4127 --- [           main] s.d.s.w.s.ApiListingReferenceScanner     : Created resource listing Path: /default/app登录接口 Description: app登录接口 Position: 0
+2018-01-19 11:24:21.963  INFO 4127 --- [           main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: io.everManage.common.utils.R(true)
+2018-01-19 11:24:21.963  INFO 4127 --- [           main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key io.everManage.common.utils.R(true)
+2018-01-19 11:24:21.988  INFO 4127 --- [           main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: io.everManage.common.utils.R(true)
+2018-01-19 11:24:21.988  INFO 4127 --- [           main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key io.everManage.common.utils.R(true)
+2018-01-19 11:24:22.001  INFO 4127 --- [           main] s.d.s.p.ModelPropertiesKeyGenerator      : Cache key generated: io.everManage.common.utils.R(true)
+2018-01-19 11:24:22.002  INFO 4127 --- [           main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelProperties with key io.everManage.common.utils.R(true)
+2018-01-19 11:24:22.053  INFO 4127 --- [           main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /app/register.io.everManage.modules.app.controller.ApiRegisterController.register.DefaultGenericTypeNamingStrategy
+2018-01-19 11:24:22.053  INFO 4127 --- [           main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /app/register.io.everManage.modules.app.controller.ApiRegisterController.register.DefaultGenericTypeNamingStrategy
+2018-01-19 11:24:22.093  INFO 4127 --- [           main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method register was app注册接口
+2018-01-19 11:24:22.124  INFO 4127 --- [           main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method register was app注册接口
+2018-01-19 11:24:22.150  INFO 4127 --- [           main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: io.everManage.common.utils.R(true)
+2018-01-19 11:24:22.151  INFO 4127 --- [           main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key io.everManage.common.utils.R(true)
+2018-01-19 11:24:22.151  INFO 4127 --- [           main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: io.everManage.common.utils.R(true)
+2018-01-19 11:24:22.151  INFO 4127 --- [           main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key io.everManage.common.utils.R(true)
+2018-01-19 11:24:22.151  INFO 4127 --- [           main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /app/notToken.io.everManage.modules.app.controller.ApiTestController.notToken.DefaultGenericTypeNamingStrategy
+2018-01-19 11:24:22.151  INFO 4127 --- [           main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /app/notToken.io.everManage.modules.app.controller.ApiTestController.notToken.DefaultGenericTypeNamingStrategy
+2018-01-19 11:24:22.153  INFO 4127 --- [           main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method notToken was app测试接口
+2018-01-19 11:24:22.155  INFO 4127 --- [           main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method notToken was app测试接口
+2018-01-19 11:24:22.161  INFO 4127 --- [           main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: io.everManage.common.utils.R(true)
+2018-01-19 11:24:22.161  INFO 4127 --- [           main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key io.everManage.common.utils.R(true)
+2018-01-19 11:24:22.161  INFO 4127 --- [           main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: io.everManage.common.utils.R(true)
+2018-01-19 11:24:22.161  INFO 4127 --- [           main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key io.everManage.common.utils.R(true)
+2018-01-19 11:24:22.161  INFO 4127 --- [           main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /app/userId.io.everManage.modules.app.controller.ApiTestController.userInfo.DefaultGenericTypeNamingStrategy
+2018-01-19 11:24:22.161  INFO 4127 --- [           main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /app/userId.io.everManage.modules.app.controller.ApiTestController.userInfo.DefaultGenericTypeNamingStrategy
+2018-01-19 11:24:22.166  INFO 4127 --- [           main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method userInfo was app测试接口
+2018-01-19 11:24:22.168  INFO 4127 --- [           main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method userInfo was app测试接口
+2018-01-19 11:24:22.170  INFO 4127 --- [           main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: io.everManage.common.utils.R(true)
+2018-01-19 11:24:22.170  INFO 4127 --- [           main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key io.everManage.common.utils.R(true)
+2018-01-19 11:24:22.170  INFO 4127 --- [           main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: io.everManage.common.utils.R(true)
+2018-01-19 11:24:22.170  INFO 4127 --- [           main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key io.everManage.common.utils.R(true)
+2018-01-19 11:24:22.170  INFO 4127 --- [           main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /app/userInfo.io.everManage.modules.app.controller.ApiTestController.userInfo.DefaultGenericTypeNamingStrategy
+2018-01-19 11:24:22.170  INFO 4127 --- [           main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /app/userInfo.io.everManage.modules.app.controller.ApiTestController.userInfo.DefaultGenericTypeNamingStrategy
+2018-01-19 11:24:22.176  INFO 4127 --- [           main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method userInfo was app测试接口
+2018-01-19 11:24:22.178  INFO 4127 --- [           main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method userInfo was app测试接口
+2018-01-19 11:24:22.179  INFO 4127 --- [           main] .d.s.w.r.o.CachingOperationNameGenerator : Generating unique operation named: userInfoUsingGET_1
+2018-01-19 11:24:22.182  INFO 4127 --- [           main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: io.everManage.common.utils.R(true)
+2018-01-19 11:24:22.183  INFO 4127 --- [           main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache models with key io.everManage.common.utils.R(true)
+2018-01-19 11:24:22.183  INFO 4127 --- [           main] s.d.schema.ModelContextKeyGenerator      : Cache Key Generated: io.everManage.common.utils.R(true)
+2018-01-19 11:24:22.183  INFO 4127 --- [           main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache modelDependencies with key io.everManage.common.utils.R(true)
+2018-01-19 11:24:22.184  INFO 4127 --- [           main] s.d.spring.web.OperationsKeyGenerator    : Cache key generated: /app/login.io.everManage.modules.app.controller.ApiLoginController.login.DefaultGenericTypeNamingStrategy
+2018-01-19 11:24:22.184  INFO 4127 --- [           main] s.d.spring.web.caching.CachingAspect     : Caching aspect applied for cache operations with key /app/login.io.everManage.modules.app.controller.ApiLoginController.login.DefaultGenericTypeNamingStrategy
+2018-01-19 11:24:22.187  INFO 4127 --- [           main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method login was app登录接口
+2018-01-19 11:24:22.189  INFO 4127 --- [           main] s.w.ClassOrApiAnnotationResourceGrouping : Group for method login was app登录接口
+2018-01-19 11:24:22.312  INFO 4127 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
