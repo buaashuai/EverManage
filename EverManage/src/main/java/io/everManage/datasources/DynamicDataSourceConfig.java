@@ -12,6 +12,7 @@ import java.util.Map;
 
 /**
  * 配置多数据源
+ *
  * @author wangshuai
  * @email shuaiwang126@163.com
  * @date 2017/8/19 0:41
@@ -21,16 +22,26 @@ public class DynamicDataSourceConfig {
 
     @Bean
     @ConfigurationProperties("spring.datasource.druid.first")
-    public DataSource firstDataSource(){
+    public DataSource firstDataSource() {
+        //数据源1，读取spring.datasource.druid.first下的配置信息
         return DruidDataSourceBuilder.create().build();
     }
 
     @Bean
     @ConfigurationProperties("spring.datasource.druid.second")
-    public DataSource secondDataSource(){
+    public DataSource secondDataSource() {
+        //数据源2，读取spring.datasource.druid.second下的配置信息
         return DruidDataSourceBuilder.create().build();
     }
 
+    /**
+     * 加了@Primary注解，表示指定DynamicDataSource为Spring的数据源, 因为DynamicDataSource是继承与AbstractRoutingDataSource，
+     * 而AbstractR outingDataSource又是继承于AbstractDataSource，AbstractDataSource实现了统一 的DataSource接口，所以DynamicDataSource也可以当做DataSource使用
+     *
+     * @param firstDataSource
+     * @param secondDataSource
+     * @return
+     */
     @Bean
     @Primary
     public DynamicDataSource dataSource(DataSource firstDataSource, DataSource secondDataSource) {

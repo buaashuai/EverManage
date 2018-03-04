@@ -36,8 +36,8 @@ public class SwaggerConfig extends WebMvcConfigurerAdapter {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-            .title("人人开源")
-            .description("everManage-fast文档")
+                .title("EverManage")
+                .description("EverManage文档")
             .termsOfServiceUrl("http://www.everManage.io")
             .version("1.3")
             .build();
