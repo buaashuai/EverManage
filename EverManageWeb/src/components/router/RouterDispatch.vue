@@ -13,7 +13,7 @@
         //页面容器,用于存放需要跳转页面的路径
         page_list: {
           'index': 'index.html',
-          'about': 'about.html',
+          'sys@sys_about': 'sys/sys_about.html',
           'generator': 'generator.html',
         }
       }

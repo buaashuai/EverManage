@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper" id="app" v-cloak>
     <header class="main-header">
-      <a @click="changeNavTitle('about')" href="#/about" class="logo">
+      <a @click="changeNavTitle('about')" href="#/sys@sys_about" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini"><b>code</b></span>
         <!-- logo for regular state and mobile devices -->
@@ -42,7 +42,8 @@
               class="fa fa-angle-left pull-right"></i></a>
             <ul class="treeview-menu menu-open" style="display: block;">
               <li @click="changeNavTitle"><a href="#/generator"><i class="fa fa-rocket"></i> 控制台</a></li>
-              <li id="default" class="active" @click="changeNavTitle"><a href="#/about"><i class="fa fa-rocket"></i> 关于</a>
+              <li id="default" class="active" @click="changeNavTitle"><a href="#/sys@sys_about"><i
+                class="fa fa-rocket"></i> 关于</a>
               </li>
             </ul>
           </li>

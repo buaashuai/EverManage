@@ -20,11 +20,41 @@
   };
   T.p = url;
 
-//全局配置
+  //请求前缀
+  var baseURL = "/EverManage/";
+
+//登录token
+  var token = localStorage.getItem("token");
+  if (token == 'null') {
+    parent.location.href = baseURL + 'login.html';
+  }
+
+//jquery全局配置
   $.ajaxSetup({
     dataType: "json",
     contentType: "application/json",
-    cache: false
+    cache: false,
+    headers: {
+      "token": token
+    },
+    xhrFields: {
+      withCredentials: true
+    },
+    complete: function (xhr) {
+      //token过期，则跳转到登录页面
+      if (xhr.responseJSON.code == 401) {
+        parent.location.href = baseURL + 'login.html';
+      }
+    }
+  });
+
+  //jqgrid全局配置
+  $.extend($.jgrid.defaults, {
+    ajaxGridOptions: {
+      headers: {
+        "token": token
+      }
+    }
   });
 
   function hasPermission(permission) {
@@ -54,7 +84,6 @@
         }
       });
   }
-
 
 
 }());

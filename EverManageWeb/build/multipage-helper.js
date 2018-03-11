@@ -146,8 +146,13 @@ function readDirSync(path, moduleName) {
       // console.log("file: "+ele)
     }
   })
+  //console.log('########   ' + module.moduleID + "," + module.moduleJS + ',' + module.moduleHTML + ',' + moduleName + ".html");
+  if (module.moduleHTML === "") {//模块目录下如果不存在对应的html文件，默认使用 src/module/index.html
+    module.moduleHTML = moduleRootPath + "/" + 'index.html'
+  }
   //判断模块是否真实(可能只是个分级目录)
-  if ((module.moduleID != "" && module.moduleHTML != "") || (module.moduleID != "" && module.moduleJS != "")) {
+  if (module.moduleID != "" && module.moduleHTML != "" && module.moduleJS != "") {
+    // console.log('module');
     // console.log(module);
     moduleList.push(module)
   }

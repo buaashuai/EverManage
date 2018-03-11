@@ -145,7 +145,7 @@ $.jgrid.regional["cn"] = {
                 // and see http://docs.jquery.com/UI/Datepicker/formatDate
                 // and https://github.com/jquery/globalize#dates for alternative formats used frequently
                 // one can find on https://github.com/jquery/globalize/tree/master/lib/cultures many
-                // information about date, time, numbers and currency formats used in different countries
+              // information sys_about date, time, numbers and currency formats used in different countries
                 // one should just convert the information in PHP format
                 ISO8601Long:"Y-m-d H:i:s",
                 ISO8601Short:"Y-m-d",

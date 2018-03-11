@@ -11,7 +11,7 @@ var config = require('../config')
 var webpackConfig = require('./webpack.prod.conf')
 var webpackConfigCommon = require('./webpack.prod.common')
 
-var spinner = ora('building for production...')
+var spinner = ora('打包开始...')
 spinner.start()
 // console.log(process.env.buildType);
 
@@ -32,7 +32,7 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
       chunkModules: false
     }) + '\n\n')
 
-    console.log(chalk.cyan('  Build complete.\n'))
+    console.log(chalk.cyan('  打包结束\n'))
     console.log(chalk.yellow(
       '  Tip: built files are meant to be served over an HTTP server.\n' +
       '  Opening index.html over file:// won\'t work.\n'
@@ -41,7 +41,7 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
 
   //打包其他静态资源
   webpack(webpackConfigCommon, function (err, stats) {
-    console.log('静态资源打包开始...');
+    console.log('静态资源打包开始...\n');
     spinner.stop()
     if (err) throw err
     process.stdout.write(stats.toString({
@@ -52,7 +52,7 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), err => {
       chunkModules: false
     }) + '\n\n')
 
-    console.log(chalk.cyan('  Build common files complete.\n'))
+    console.log(chalk.cyan('静态资源打包结束\n'))
   })
 
 })

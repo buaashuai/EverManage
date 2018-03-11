@@ -1,6 +1,6 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
-var webName = 'CodeGeneratorWeb';// 网站名
+var webName = 'EverManageWeb';// 网站名
 module.exports = {
   webName: webName,// 网站名
   build: {

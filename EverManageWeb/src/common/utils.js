@@ -26,7 +26,7 @@ utils.isString = function (obj) {
 
 // 当前 url 相关变量
 var
-  webName = '/CodeGeneratorWeb/',// 网站名
+  webName = '/EverManageWeb/',// 网站名
   loc = location,
   protocol = loc.protocol,//http:
   host = loc.host,//localhost:8080
@@ -134,5 +134,11 @@ utils.getSelectedRows = function () {
 
   return grid.getGridParam("selarrrow");
 }
+
+//判断是否为空
+function isBlank(value) {
+  return !value || !/\S/.test(value)
+}
+
 export default utils;
 

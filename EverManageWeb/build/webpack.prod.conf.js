@@ -8,6 +8,7 @@ var CopyWebpackPlugin = require('copy-webpack-plugin')
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
+var CleanWebpackPlugin = require('clean-webpack-plugin');
 
 //引入多页面支持
 var multipageHelper = require('./multipage-helper')
@@ -28,6 +29,14 @@ var webpackConfig = merge(baseWebpackConfig, {
     chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
   plugins: [
+    new CleanWebpackPlugin(
+      ['dist/',],　 //匹配删除的文件
+      {
+        root: __dirname,       　　　　　　　　　　//根目录
+        verbose: true,        　　　　　　　　　　//开启在控制台输出信息
+        dry: false        　　　　　　　　　　//启用删除文件
+      }
+    ),
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
       'process.env': env
@@ -103,7 +112,7 @@ if (config.build.productionGzip) {
       ),
       threshold: 10240,
       minRatio: 0.8
-    })
+    }),
   )
 }
 
@@ -115,4 +124,4 @@ if (config.build.bundleAnalyzerReport) {
 module.exports = webpackConfig
 
 //添加Html模板集合
-Array.prototype.push.apply(module.exports.plugins,multipageHelper.getProdHtmlWebpackPluginList())
+Array.prototype.push.apply(module.exports.plugins, multipageHelper.getProdHtmlWebpackPluginList())

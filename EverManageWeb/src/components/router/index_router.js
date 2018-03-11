@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import RouterDispatch from '../components/RouterDispatch.vue'
+import RouterDispatch from './RouterDispatch.vue'
 
 Vue.use(Router)
 
