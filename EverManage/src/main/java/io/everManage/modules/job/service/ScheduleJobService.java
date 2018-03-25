@@ -1,8 +1,9 @@
 package io.everManage.modules.job.service;
 
+import com.baomidou.mybatisplus.service.IService;
+import io.everManage.common.utils.PageUtils;
 import io.everManage.modules.job.entity.ScheduleJobEntity;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -12,23 +13,10 @@ import java.util.Map;
  * @email shuaiwang126@163.com
  * @date 2016年11月28日 上午9:55:32
  */
-public interface ScheduleJobService {
+public interface ScheduleJobService extends IService<ScheduleJobEntity> {
 
-	/**
-	 * 根据ID，查询定时任务
-	 */
-	ScheduleJobEntity queryObject(Long jobId);
-	
-	/**
-	 * 查询定时任务列表
-	 */
-	List<ScheduleJobEntity> queryList(Map<String, Object> map);
-	
-	/**
-	 * 查询总数
-	 */
-	int queryTotal(Map<String, Object> map);
-	
+    PageUtils queryPage(Map<String, Object> params);
+
 	/**
 	 * 保存定时任务
 	 */

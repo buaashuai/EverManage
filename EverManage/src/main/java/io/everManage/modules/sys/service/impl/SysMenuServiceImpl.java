@@ -1,26 +1,27 @@
 package io.everManage.modules.sys.service.impl;
 
+
+import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import io.everManage.common.utils.Constant;
+import io.everManage.common.utils.MapUtils;
 import io.everManage.modules.sys.dao.SysMenuDao;
 import io.everManage.modules.sys.entity.SysMenuEntity;
 import io.everManage.modules.sys.service.SysMenuService;
 import io.everManage.modules.sys.service.SysRoleMenuService;
 import io.everManage.modules.sys.service.SysUserService;
-import io.everManage.common.utils.Constant.MenuType;
-import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Service("sysMenuService")
-public class SysMenuServiceImpl implements SysMenuService {
-	@Autowired
-	private SysMenuDao sysMenuDao;
+public class SysMenuServiceImpl extends ServiceImpl<SysMenuDao, SysMenuEntity> implements SysMenuService {
 	@Autowired
 	private SysUserService sysUserService;
+    @Autowired
+    private SysRoleMenuService sysRoleMenuService;
 	
 	@Override
 	public List<SysMenuEntity> queryListParentId(Long parentId, List<Long> menuIdList) {
@@ -40,12 +41,12 @@ public class SysMenuServiceImpl implements SysMenuService {
 
 	@Override
 	public List<SysMenuEntity> queryListParentId(Long parentId) {
-		return sysMenuDao.queryListParentId(parentId);
+        return baseMapper.queryListParentId(parentId);
 	}
 
 	@Override
 	public List<SysMenuEntity> queryNotButtonList() {
-		return sysMenuDao.queryNotButtonList();
+        return baseMapper.queryNotButtonList();
 	}
 
 	@Override
@@ -59,41 +60,13 @@ public class SysMenuServiceImpl implements SysMenuService {
 		List<Long> menuIdList = sysUserService.queryAllMenuId(userId);
 		return getAllMenuList(menuIdList);
 	}
-	
-	@Override
-	public SysMenuEntity queryObject(Long menuId) {
-		return sysMenuDao.queryObject(menuId);
-	}
 
 	@Override
-	public List<SysMenuEntity> queryList(Map<String, Object> map) {
-		return sysMenuDao.queryList(map);
-	}
-
-	@Override
-	public int queryTotal(Map<String, Object> map) {
-		return sysMenuDao.queryTotal(map);
-	}
-
-	@Override
-	public void save(SysMenuEntity menu) {
-		sysMenuDao.save(menu);
-	}
-
-	@Override
-	public void update(SysMenuEntity menu) {
-		sysMenuDao.update(menu);
-	}
-
-	@Override
-	@Transactional
-	public void deleteBatch(Long[] menuIds) {
-		sysMenuDao.deleteBatch(menuIds);
-	}
-	
-	@Override
-	public List<SysMenuEntity> queryUserList(Long userId) {
-		return sysMenuDao.queryUserList(userId);
+    public void delete(Long menuId) {
+        //删除菜单
+        this.deleteById(menuId);
+        //删除菜单与角色关联
+        sysRoleMenuService.deleteByMap(new MapUtils().put("menu_id", menuId));
 	}
 
 	/**
@@ -115,7 +88,8 @@ public class SysMenuServiceImpl implements SysMenuService {
 		List<SysMenuEntity> subMenuList = new ArrayList<SysMenuEntity>();
 		
 		for(SysMenuEntity entity : menuList){
-			if(entity.getType() == MenuType.CATALOG.getValue()){//目录
+            //目录
+            if (entity.getType() == Constant.MenuType.CATALOG.getValue()) {
 				entity.setList(getMenuTreeList(queryListParentId(entity.getMenuId(), menuIdList), menuIdList));
 			}
 			subMenuList.add(entity);

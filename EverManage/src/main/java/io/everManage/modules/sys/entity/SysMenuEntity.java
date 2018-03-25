@@ -1,6 +1,10 @@
 package io.everManage.modules.sys.entity;
 
 
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -11,13 +15,15 @@ import java.util.List;
  * @email shuaiwang126@163.com
  * @date 2016年9月18日 上午9:26:39
  */
+@TableName("sys_menu")
 public class SysMenuEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	/**
 	 * 菜单ID
 	 */
-	private Long menuId;
+    @TableId
+    private Long menuId;
 
 	/**
 	 * 父菜单ID，一级菜单为0
@@ -27,7 +33,8 @@ public class SysMenuEntity implements Serializable {
 	/**
 	 * 父菜单名称
 	 */
-	private String parentName;
+    @TableField(exist = false)
+    private String parentName;
 
 	/**
 	 * 菜单名称
@@ -62,8 +69,10 @@ public class SysMenuEntity implements Serializable {
 	/**
 	 * ztree属性
 	 */
-	private Boolean open;
-	
+    @TableField(exist = false)
+    private Boolean open;
+
+    @TableField(exist = false)
 	private List<?> list;
 
 	public void setMenuId(Long menuId) {

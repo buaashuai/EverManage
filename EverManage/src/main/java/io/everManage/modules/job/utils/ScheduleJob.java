@@ -1,10 +1,9 @@
 package io.everManage.modules.job.utils;
 
-import com.google.gson.Gson;
+import io.everManage.common.utils.SpringContextUtils;
 import io.everManage.modules.job.entity.ScheduleJobEntity;
 import io.everManage.modules.job.entity.ScheduleJobLogEntity;
 import io.everManage.modules.job.service.ScheduleJobLogService;
-import io.everManage.common.utils.SpringContextUtils;
 import org.apache.commons.lang.StringUtils;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
@@ -31,10 +30,10 @@ public class ScheduleJob extends QuartzJobBean {
 	
     @Override
     protected void executeInternal(JobExecutionContext context) throws JobExecutionException {
-		String jsonJob = context.getMergedJobDataMap().getString(ScheduleJobEntity.JOB_PARAM_KEY);
-		ScheduleJobEntity scheduleJob = new Gson().fromJson(jsonJob, ScheduleJobEntity.class);
+        ScheduleJobEntity scheduleJob = (ScheduleJobEntity) context.getMergedJobDataMap()
+                .get(ScheduleJobEntity.JOB_PARAM_KEY);
 
-		//获取scheduleJobLogService
+        //获取spring bean
         ScheduleJobLogService scheduleJobLogService = (ScheduleJobLogService) SpringContextUtils.getBean("scheduleJobLogService");
         
         //数据库保存执行记录
@@ -51,7 +50,7 @@ public class ScheduleJob extends QuartzJobBean {
         try {
             //执行任务
         	logger.info("任务准备执行，任务ID：" + scheduleJob.getJobId());
-            ScheduleRunnable task = new ScheduleRunnable(scheduleJob.getBeanName(), 
+            ScheduleRunnable task = new ScheduleRunnable(scheduleJob.getBeanName(),
             		scheduleJob.getMethodName(), scheduleJob.getParams());
             Future<?> future = service.submit(task);
             
@@ -75,7 +74,7 @@ public class ScheduleJob extends QuartzJobBean {
 			log.setStatus(1);
 			log.setError(StringUtils.substring(e.toString(), 0, 2000));
 		}finally {
-			scheduleJobLogService.save(log);
+            scheduleJobLogService.insert(log);
 		}
     }
 }

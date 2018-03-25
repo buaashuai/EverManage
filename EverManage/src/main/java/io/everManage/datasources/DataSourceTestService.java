@@ -18,11 +18,11 @@ public class DataSourceTestService {
     private UserService userService;
 
     public UserEntity queryObject(Long userId){
-        return userService.queryObject(userId);
+        return userService.selectById(userId);
     }
 
     @DataSource(name = DataSourceNames.SECOND)
     public UserEntity queryObject2(Long userId){
-        return userService.queryObject(userId);
+        return userService.selectById(userId);
     }
 }

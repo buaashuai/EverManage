@@ -1,10 +1,10 @@
 swagger: '2.0'
 info:
-  description: renren-fast是一个轻量级的Java快速开发平台，能快速开发项目并交付【接私活利器】
+  description: everManage是一个轻量级的Java快速开发平台，能快速开发项目并交付【接私活利器】
   version: 1.0.0
   title: 人人快速开发平台
 
-basePath: /renren-fast
+basePath: /everManage
 
 schemes:
   - http
@@ -25,6 +25,12 @@ paths:
       summary: 获取验证码
       produces:
         - application/octet-stream
+      parameters:
+        - name: uuid
+          description: UUID
+          in: query
+          type: string
+          required: true
   /sys/login:
     post:
       tags:
@@ -33,20 +39,12 @@ paths:
       produces:
         - application/json
       parameters:
-        - name: username
-          description: 用户名
-          in: query
+        - name: body
+          description: 管理员对象
+          in: body
           type: string
-          required: true
-        - name: password
-          description: 密码
-          in: query
-          type: string
-          required: true
-        - name: captcha
-          description: 验证码
-          in: query
-          type: string
+          schema:
+            $ref: '#/definitions/LoginForm'
           required: true
       responses:
         '200':
@@ -140,15 +138,12 @@ paths:
       produces:
         - application/json
       parameters:
-        - name: password
-          description: 原密码
-          in: query
+        - name: body
+          description: 管理员对象
+          in: body
           type: string
-          required: true
-        - name: newPassword
-          description: 新密码
-          in: query
-          type: string
+          schema:
+            $ref: '#/definitions/PasswordForm'
           required: true
       responses:
         '200':
@@ -484,7 +479,7 @@ paths:
         '200':
           schema:
             $ref: '#/definitions/R'
-  /sys/menu/delete:
+  /sys/menu/delete/{menuId}:
     post:
       tags:
         - 菜单管理
@@ -492,14 +487,10 @@ paths:
       produces:
         - application/json
       parameters:
-        - name: body
-          description: 菜单ID列表
-          in: body
-          type: array
-          items:
-            type: integer
-            format: int64
-            default: 0
+        - name: menuId
+          description: 菜单ID
+          in: path
+          type: integer
           required: true
       responses:
         '200':
@@ -1050,7 +1041,30 @@ definitions:
         msg:
           description: 失败原因
           type: string
-
+  LoginForm:
+    type: object
+    properties:
+      username:
+        description: 用户名
+        type: string
+      password:
+        description: 密码
+        type: string
+      captcha:
+        description: 验证码
+        type: string
+      uuid:
+        description: UUID
+        type: string
+  PasswordForm:
+    type: object
+    properties:
+      password:
+        description: 原密码
+        type: string
+      newPassword:
+        description: 新密码
+        type: string
   SysUserEntity:
     type: object
     properties:

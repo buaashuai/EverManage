@@ -35,7 +35,9 @@ public class FilterConfig {
         FilterRegistrationBean registration = new FilterRegistrationBean();
         registration.setDispatcherTypes(DispatcherType.REQUEST);
         registration.setFilter(new XssFilter());
-        registration.addUrlPatterns("/*");
+//        registration.addUrlPatterns("/*");
+        registration.addUrlPatterns("/app/*");
+        registration.addUrlPatterns("/sys/*");
         registration.setName("xssFilter");
         registration.setOrder(Integer.MAX_VALUE);
         return registration;

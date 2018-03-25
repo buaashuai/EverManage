@@ -1,8 +1,10 @@
 package io.everManage.modules.sys.service;
 
+
+import com.baomidou.mybatisplus.service.IService;
+import io.everManage.common.utils.PageUtils;
 import io.everManage.modules.sys.entity.SysConfigEntity;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -12,7 +14,9 @@ import java.util.Map;
  * @email shuaiwang126@163.com
  * @date 2016年12月4日 下午6:49:01
  */
-public interface SysConfigService {
+public interface SysConfigService extends IService<SysConfigEntity> {
+
+    PageUtils queryPage(Map<String, Object> params);
 	
 	/**
 	 * 保存配置信息
@@ -33,17 +37,6 @@ public interface SysConfigService {
 	 * 删除配置信息
 	 */
 	public void deleteBatch(Long[] ids);
-	
-	/**
-	 * 获取List列表
-	 */
-	public List<SysConfigEntity> queryList(Map<String, Object> map);
-	/**
-	 * 获取总记录数
-	 */
-	public int queryTotal(Map<String, Object> map);
-	
-	public SysConfigEntity queryObject(Long id);
 	
 	/**
 	 * 根据key，获取配置的value值

@@ -1,5 +1,8 @@
 package io.everManage.modules.job.entity;
 
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -10,13 +13,15 @@ import java.util.Date;
  * @email shuaiwang126@163.com
  * @date 2016年12月1日 下午10:26:18
  */
+@TableName("schedule_job_log")
 public class ScheduleJobLogEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * 日志id
 	 */
-	private Long logId;
+    @TableId
+    private Long logId;
 	
 	/**
 	 * 任务id

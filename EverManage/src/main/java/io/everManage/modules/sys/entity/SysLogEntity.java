@@ -1,5 +1,8 @@
 package io.everManage.modules.sys.entity;
 
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -11,9 +14,10 @@ import java.util.Date;
  * @email shuaiwang126@163.com
  * @date 2017-03-08 10:40:56
  */
+@TableName("sys_log")
 public class SysLogEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+    @TableId
 	private Long id;
 	//用户名
 	private String username;

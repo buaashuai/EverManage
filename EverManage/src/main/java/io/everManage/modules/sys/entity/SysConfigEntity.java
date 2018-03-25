@@ -1,6 +1,7 @@
 package io.everManage.modules.sys.entity;
 
-
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
 import org.hibernate.validator.constraints.NotBlank;
 
 /**
@@ -10,8 +11,10 @@ import org.hibernate.validator.constraints.NotBlank;
  * @email shuaiwang126@163.com
  * @date 2016年12月4日 下午6:43:36
  */
+@TableName("sys_config")
 public class SysConfigEntity {
-	private Long id;
+    @TableId
+    private Long id;
 	@NotBlank(message="参数名不能为空")
 	private String key;
 	@NotBlank(message="参数值不能为空")

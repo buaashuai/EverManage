@@ -1,7 +1,8 @@
 package io.everManage.modules.oss.dao;
 
+
+import com.baomidou.mybatisplus.mapper.BaseMapper;
 import io.everManage.modules.oss.entity.SysOssEntity;
-import io.everManage.modules.sys.dao.BaseDao;
 import org.apache.ibatis.annotations.Mapper;
 
 /**
@@ -12,6 +13,6 @@ import org.apache.ibatis.annotations.Mapper;
  * @date 2017-03-25 12:13:26
  */
 @Mapper
-public interface SysOssDao extends BaseDao<SysOssEntity> {
+public interface SysOssDao extends BaseMapper<SysOssEntity> {
 	
 }

@@ -3,29 +3,5 @@
 
 <mapper namespace="io.everManage.modules.app.dao.UserDao">
 
-	<insert id="save" parameterType="io.everManage.modules.app.entity.UserEntity" useGeneratedKeys="true" keyProperty="userId">
-		insert into tb_user
-		(
-			`username`,
-			`mobile`,
-			`password`,
-			`create_time`
-		)
-		values
-			(
-				#{username},
-				#{mobile},
-				#{password},
-				#{createTime}
-			)
-	</insert>
-
-	<select id="queryObject" resultType="io.everManage.modules.app.entity.UserEntity">
-		select * from tb_user where user_id = #{value}
-	</select>
-
-	<select id="queryByMobile" resultType="io.everManage.modules.app.entity.UserEntity">
-		select * from tb_user where mobile = #{value}
-	</select>
 
 </mapper>

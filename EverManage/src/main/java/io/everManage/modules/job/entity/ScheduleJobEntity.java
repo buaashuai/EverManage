@@ -1,5 +1,7 @@
 package io.everManage.modules.job.entity;
 
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
 import org.hibernate.validator.constraints.NotBlank;
 
 import java.io.Serializable;
@@ -12,6 +14,7 @@ import java.util.Date;
  * @email shuaiwang126@163.com
  * @date 2016年11月28日 下午12:54:44
  */
+@TableName("schedule_job")
 public class ScheduleJobEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -23,7 +26,8 @@ public class ScheduleJobEntity implements Serializable {
 	/**
 	 * 任务id
 	 */
-	private Long jobId;
+    @TableId
+    private Long jobId;
 
 	/**
 	 * spring bean名称

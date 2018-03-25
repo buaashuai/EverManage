@@ -1,5 +1,8 @@
 package io.everManage.modules.sys.entity;
 
+import com.baomidou.mybatisplus.annotations.TableField;
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
 import io.everManage.common.validator.group.AddGroup;
 import io.everManage.common.validator.group.UpdateGroup;
 import org.hibernate.validator.constraints.Email;
@@ -16,13 +19,15 @@ import java.util.List;
  * @email shuaiwang126@163.com
  * @date 2016年9月18日 上午9:28:55
  */
+@TableName("sys_user")
 public class SysUserEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	/**
 	 * 用户ID
 	 */
-	private Long userId;
+    @TableId
+    private Long userId;
 
 	/**
 	 * 用户名
@@ -61,7 +66,8 @@ public class SysUserEntity implements Serializable {
 	/**
 	 * 角色ID列表
 	 */
-	private List<Long> roleIdList;
+    @TableField(exist = false)
+    private List<Long> roleIdList;
 	
 	/**
 	 * 创建者ID

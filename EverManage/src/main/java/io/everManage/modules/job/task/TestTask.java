@@ -2,7 +2,6 @@ package io.everManage.modules.job.task;
 
 import io.everManage.modules.sys.entity.SysUserEntity;
 import io.everManage.modules.sys.service.SysUserService;
-
 import org.apache.commons.lang.builder.ToStringBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,8 +33,8 @@ public class TestTask {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		
-		SysUserEntity user = sysUserService.queryObject(1L);
+
+        SysUserEntity user = sysUserService.selectById(1L);
 		System.out.println(ToStringBuilder.reflectionToString(user));
 		
 	}

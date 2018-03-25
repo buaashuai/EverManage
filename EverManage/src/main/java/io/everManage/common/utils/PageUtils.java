@@ -1,5 +1,7 @@
 package io.everManage.common.utils;
 
+import com.baomidou.mybatisplus.plugins.Page;
+
 import java.io.Serializable;
 import java.util.List;
 
@@ -37,6 +39,17 @@ public class PageUtils implements Serializable {
 		this.currPage = currPage;
 		this.totalPage = (int)Math.ceil((double)totalCount/pageSize);
 	}
+
+    /**
+     * 分页
+     */
+    public PageUtils(Page<?> page) {
+        this.list = page.getRecords();
+        this.totalCount = page.getTotal();
+        this.pageSize = page.getSize();
+        this.currPage = page.getCurrent();
+        this.totalPage = page.getPages();
+    }
 
 	public int getTotalCount() {
 		return totalCount;

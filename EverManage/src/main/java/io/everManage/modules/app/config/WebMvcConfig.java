@@ -16,6 +16,7 @@ import java.util.List;
  * @author wangshuai
  * @email shuaiwang126@163.com
  * @date 2017-04-20 22:30
+
  */
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurerAdapter {

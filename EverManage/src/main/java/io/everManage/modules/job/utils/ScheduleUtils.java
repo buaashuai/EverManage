@@ -1,10 +1,10 @@
 package io.everManage.modules.job.utils;
 
-import com.google.gson.Gson;
-import io.everManage.modules.job.entity.ScheduleJobEntity;
-import io.everManage.common.utils.Constant.ScheduleStatus;
 import io.everManage.common.exception.RRException;
+import io.everManage.common.utils.Constant;
+import io.everManage.modules.job.entity.ScheduleJobEntity;
 import org.quartz.*;
+
 
 /**
  * 定时任务工具类
@@ -19,14 +19,14 @@ public class ScheduleUtils {
     /**
      * 获取触发器key
      */
-    private static TriggerKey getTriggerKey(Long jobId) {
+    public static TriggerKey getTriggerKey(Long jobId) {
         return TriggerKey.triggerKey(JOB_NAME + jobId);
     }
     
     /**
      * 获取jobKey
      */
-    private static JobKey getJobKey(Long jobId) {
+    public static JobKey getJobKey(Long jobId) {
         return JobKey.jobKey(JOB_NAME + jobId);
     }
 
@@ -37,7 +37,7 @@ public class ScheduleUtils {
         try {
             return (CronTrigger) scheduler.getTrigger(getTriggerKey(jobId));
         } catch (SchedulerException e) {
-            throw new RRException("getCronTrigger异常，请检查qrtz开头的表，是否有脏数据", e);
+            throw new RRException("获取定时任务CronTrigger出现异常", e);
         }
     }
 
@@ -46,24 +46,23 @@ public class ScheduleUtils {
      */
     public static void createScheduleJob(Scheduler scheduler, ScheduleJobEntity scheduleJob) {
         try {
-        	//构建job
+            //构建job信息
             JobDetail jobDetail = JobBuilder.newJob(ScheduleJob.class).withIdentity(getJobKey(scheduleJob.getJobId())).build();
 
-            //构建cron
+            //表达式调度构建器
             CronScheduleBuilder scheduleBuilder = CronScheduleBuilder.cronSchedule(scheduleJob.getCronExpression())
             		.withMisfireHandlingInstructionDoNothing();
 
-            //根据cron，构建一个CronTrigger
-            CronTrigger trigger = TriggerBuilder.newTrigger().withIdentity(getTriggerKey(scheduleJob.getJobId())).
-                    withSchedule(scheduleBuilder).build();
+            //按新的cronExpression表达式构建一个新的trigger
+            CronTrigger trigger = TriggerBuilder.newTrigger().withIdentity(getTriggerKey(scheduleJob.getJobId())).withSchedule(scheduleBuilder).build();
 
             //放入参数，运行时的方法可以获取
-            jobDetail.getJobDataMap().put(ScheduleJobEntity.JOB_PARAM_KEY, new Gson().toJson(scheduleJob));
+            jobDetail.getJobDataMap().put(ScheduleJobEntity.JOB_PARAM_KEY, scheduleJob);
 
             scheduler.scheduleJob(jobDetail, trigger);
             
             //暂停任务
-            if(scheduleJob.getStatus() == ScheduleStatus.PAUSE.getValue()){
+            if (scheduleJob.getStatus() == Constant.ScheduleStatus.PAUSE.getValue()) {
             	pauseJob(scheduler, scheduleJob.getJobId());
             }
         } catch (SchedulerException e) {
@@ -88,12 +87,12 @@ public class ScheduleUtils {
             trigger = trigger.getTriggerBuilder().withIdentity(triggerKey).withSchedule(scheduleBuilder).build();
             
             //参数
-            trigger.getJobDataMap().put(ScheduleJobEntity.JOB_PARAM_KEY, new Gson().toJson(scheduleJob));
+            trigger.getJobDataMap().put(ScheduleJobEntity.JOB_PARAM_KEY, scheduleJob);
             
             scheduler.rescheduleJob(triggerKey, trigger);
             
             //暂停任务
-            if(scheduleJob.getStatus() == ScheduleStatus.PAUSE.getValue()){
+            if (scheduleJob.getStatus() == Constant.ScheduleStatus.PAUSE.getValue()) {
             	pauseJob(scheduler, scheduleJob.getJobId());
             }
             
@@ -109,7 +108,7 @@ public class ScheduleUtils {
         try {
         	//参数
         	JobDataMap dataMap = new JobDataMap();
-        	dataMap.put(ScheduleJobEntity.JOB_PARAM_KEY, new Gson().toJson(scheduleJob));
+            dataMap.put(ScheduleJobEntity.JOB_PARAM_KEY, scheduleJob);
         	
             scheduler.triggerJob(getJobKey(scheduleJob.getJobId()), dataMap);
         } catch (SchedulerException e) {

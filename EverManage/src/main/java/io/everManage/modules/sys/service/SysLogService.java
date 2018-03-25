@@ -1,8 +1,10 @@
 package io.everManage.modules.sys.service;
 
+
+import com.baomidou.mybatisplus.service.IService;
+import io.everManage.common.utils.PageUtils;
 import io.everManage.modules.sys.entity.SysLogEntity;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -12,17 +14,8 @@ import java.util.Map;
  * @email shuaiwang126@163.com
  * @date 2017-03-08 10:40:56
  */
-public interface SysLogService {
-	
-	SysLogEntity queryObject(Long id);
-	
-	List<SysLogEntity> queryList(Map<String, Object> map);
-	
-	int queryTotal(Map<String, Object> map);
-	
-	void save(SysLogEntity sysLog);
+public interface SysLogService extends IService<SysLogEntity> {
 
-	void delete(Long id);
-	
-	void deleteBatch(Long[] ids);
+    PageUtils queryPage(Map<String, Object> params);
+
 }

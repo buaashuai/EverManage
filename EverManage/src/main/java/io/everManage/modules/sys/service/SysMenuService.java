@@ -1,9 +1,10 @@
 package io.everManage.modules.sys.service;
 
+
+import com.baomidou.mybatisplus.service.IService;
 import io.everManage.modules.sys.entity.SysMenuEntity;
 
 import java.util.List;
-import java.util.Map;
 
 
 /**
@@ -13,8 +14,8 @@ import java.util.Map;
  * @email shuaiwang126@163.com
  * @date 2016年9月18日 上午9:42:16
  */
-public interface SysMenuService {
-	
+public interface SysMenuService extends IService<SysMenuEntity> {
+
 	/**
 	 * 根据父菜单，查询子菜单
 	 * @param parentId 父菜单ID
@@ -37,39 +38,9 @@ public interface SysMenuService {
 	 * 获取用户菜单列表
 	 */
 	List<SysMenuEntity> getUserMenuList(Long userId);
-	
-	/**
-	 * 查询菜单
-	 */
-	SysMenuEntity queryObject(Long menuId);
-	
-	/**
-	 * 查询菜单列表
-	 */
-	List<SysMenuEntity> queryList(Map<String, Object> map);
-	
-	/**
-	 * 查询总数
-	 */
-	int queryTotal(Map<String, Object> map);
-	
-	/**
-	 * 保存菜单
-	 */
-	void save(SysMenuEntity menu);
-	
-	/**
-	 * 修改
-	 */
-	void update(SysMenuEntity menu);
-	
+
 	/**
 	 * 删除
 	 */
-	void deleteBatch(Long[] menuIds);
-	
-	/**
-	 * 查询用户的权限列表
-	 */
-	List<SysMenuEntity> queryUserList(Long userId);
+    void delete(Long menuId);
 }

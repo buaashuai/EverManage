@@ -39,7 +39,7 @@ public class SwaggerConfig extends WebMvcConfigurerAdapter {
                 .title("EverManage")
                 .description("EverManage文档")
             .termsOfServiceUrl("http://www.everManage.io")
-            .version("1.3")
+                .version("2.0")
             .build();
     }
 

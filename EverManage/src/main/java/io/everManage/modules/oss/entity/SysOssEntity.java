@@ -1,5 +1,8 @@
 package io.everManage.modules.oss.entity;
 
+import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableName;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -12,10 +15,11 @@ import java.util.Date;
  * @email shuaiwang126@163.com
  * @date 2017-03-25 12:13:26
  */
+@TableName("sys_oss")
 public class SysOssEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
-	//
+
+    @TableId
 	private Long id;
 	//URL地址
 	private String url;

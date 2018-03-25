@@ -1,30 +1,19 @@
 package io.everManage.modules.oss.service;
 
+import com.baomidou.mybatisplus.service.IService;
+import io.everManage.common.utils.PageUtils;
 import io.everManage.modules.oss.entity.SysOssEntity;
 
-import java.util.List;
 import java.util.Map;
 
 /**
  * 文件上传
- * 
- * @author wangshuai
- * @email shuaiwang126@163.com
+ *
+ * @author chenshun
+ * @email sunlightcs@gmail.com
  * @date 2017-03-25 12:13:26
  */
-public interface SysOssService {
-	
-	SysOssEntity queryObject(Long id);
-	
-	List<SysOssEntity> queryList(Map<String, Object> map);
-	
-	int queryTotal(Map<String, Object> map);
-	
-	void save(SysOssEntity sysOss);
-	
-	void update(SysOssEntity sysOss);
-	
-	void delete(Long id);
-	
-	void deleteBatch(Long[] ids);
+public interface SysOssService extends IService<SysOssEntity> {
+
+    PageUtils queryPage(Map<String, Object> params);
 }

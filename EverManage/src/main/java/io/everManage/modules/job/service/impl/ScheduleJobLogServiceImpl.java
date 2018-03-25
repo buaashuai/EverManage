@@ -1,38 +1,32 @@
 package io.everManage.modules.job.service.impl;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
+import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import io.everManage.common.utils.PageUtils;
+import io.everManage.common.utils.Query;
 import io.everManage.modules.job.dao.ScheduleJobLogDao;
 import io.everManage.modules.job.entity.ScheduleJobLogEntity;
 import io.everManage.modules.job.service.ScheduleJobLogService;
-
-import java.util.List;
-import java.util.Map;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.Map;
+
 @Service("scheduleJobLogService")
-public class ScheduleJobLogServiceImpl implements ScheduleJobLogService {
-	@Autowired
-	private ScheduleJobLogDao scheduleJobLogDao;
-	
-	@Override
-	public ScheduleJobLogEntity queryObject(Long jobId) {
-		return scheduleJobLogDao.queryObject(jobId);
-	}
+public class ScheduleJobLogServiceImpl extends ServiceImpl<ScheduleJobLogDao, ScheduleJobLogEntity> implements ScheduleJobLogService {
 
 	@Override
-	public List<ScheduleJobLogEntity> queryList(Map<String, Object> map) {
-		return scheduleJobLogDao.queryList(map);
-	}
+    public PageUtils queryPage(Map<String, Object> params) {
+        String jobId = (String) params.get("jobId");
 
-	@Override
-	public int queryTotal(Map<String, Object> map) {
-		return scheduleJobLogDao.queryTotal(map);
-	}
+        Page<ScheduleJobLogEntity> page = this.selectPage(
+                new Query<ScheduleJobLogEntity>(params).getPage(),
+                new EntityWrapper<ScheduleJobLogEntity>().like(StringUtils.isNotBlank(jobId), "job_id", jobId)
+        );
 
-	@Override
-	public void save(ScheduleJobLogEntity log) {
-		scheduleJobLogDao.save(log);
-	}
+        return new PageUtils(page);
+    }
 
 }
+

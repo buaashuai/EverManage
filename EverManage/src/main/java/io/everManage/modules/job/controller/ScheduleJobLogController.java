@@ -1,18 +1,13 @@
 package io.everManage.modules.job.controller;
 
+import io.everManage.common.utils.PageUtils;
+import io.everManage.common.utils.R;
 import io.everManage.modules.job.entity.ScheduleJobLogEntity;
 import io.everManage.modules.job.service.ScheduleJobLogService;
-import io.everManage.common.utils.PageUtils;
-import io.everManage.common.utils.Query;
-import io.everManage.common.utils.R;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -31,25 +26,20 @@ public class ScheduleJobLogController {
 	/**
 	 * 定时任务日志列表
 	 */
-	@RequestMapping("/list")
+    @GetMapping("/list")
 	@RequiresPermissions("sys:schedule:log")
 	public R list(@RequestParam Map<String, Object> params){
-		//查询列表数据
-		Query query = new Query(params);
-		List<ScheduleJobLogEntity> jobList = scheduleJobLogService.queryList(query);
-		int total = scheduleJobLogService.queryTotal(query);
-		
-		PageUtils pageUtil = new PageUtils(jobList, total, query.getLimit(), query.getPage());
-		
-		return R.ok().put("page", pageUtil);
+        PageUtils page = scheduleJobLogService.queryPage(params);
+
+        return R.ok().put("page", page);
 	}
 	
 	/**
 	 * 定时任务日志信息
 	 */
-	@RequestMapping("/info/{logId}")
+    @GetMapping("/info/{logId}")
 	public R info(@PathVariable("logId") Long logId){
-		ScheduleJobLogEntity log = scheduleJobLogService.queryObject(logId);
+        ScheduleJobLogEntity log = scheduleJobLogService.selectById(logId);
 		
 		return R.ok().put("log", log);
 	}
