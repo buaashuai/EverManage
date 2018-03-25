@@ -29,12 +29,10 @@ var webpackConfig = merge(baseWebpackConfig, {
     chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
   },
   plugins: [
-    new CleanWebpackPlugin(
-      ['dist/',],　 //匹配删除的文件
+    new CleanWebpackPlugin('dist',　 //匹配删除的文件，打包开始的时候首先删除 dist 目录下所有的文件
       {
-        root: __dirname,       　　　　　　　　　　//根目录
-        verbose: true,        　　　　　　　　　　//开启在控制台输出信息
-        dry: false        　　　　　　　　　　//启用删除文件
+        root: path.resolve(__dirname, '..'),       　　　　　　　　　　//根目录
+        verbose: true   //是否要往终端上输出log
       }
     ),
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
@@ -112,7 +110,7 @@ if (config.build.productionGzip) {
       ),
       threshold: 10240,
       minRatio: 0.8
-    }),
+    })
   )
 }
 

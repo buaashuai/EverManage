@@ -26,8 +26,10 @@
 //登录token
   var token = localStorage.getItem("token");
   if (token == 'null') {
+    console.log('token=' + token)
     parent.location.href = baseURL + 'login.html';
   }
+  console.error('token=' + token)
 
 //jquery全局配置
   $.ajaxSetup({
@@ -43,6 +45,7 @@
     complete: function (xhr) {
       //token过期，则跳转到登录页面
       if (xhr.responseJSON.code == 401) {
+        console.error('token 过期')
         parent.location.href = baseURL + 'login.html';
       }
     }

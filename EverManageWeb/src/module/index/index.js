@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import App from './index.vue'
 import router from '@/components/router/index_router'
+import Menu_item from '@/components/menu_item.vue'
 
 Vue.config.productionTip = false;
 
@@ -12,7 +13,7 @@ new Vue({
   el: '#app',
   router,
   template: '<App/>',
-  components: {App}
+  components: {App, Menu_item}
 })
 
 //iframe自适应
